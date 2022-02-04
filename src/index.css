@@ -1,0 +1,15 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-align: start;
+}
+body {
+  font-size: 100%;
+  list-style-type: none;
+}
+
+body {
+}
