@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { OptionButton } from "@components/optionButton";
 import { Box } from "@mui/material";
 
 export const GroupOptionsButtons = (props) => {
-  const [activeButton, setActiveButton] = React.useState();
+  const [activeButton, setActiveButton] = React.useState(null);
+
+  useEffect(() => {
+    props.setContextState({ ...props.contextState, button: activeButton });
+  }, [activeButton]);
 
   return (
     <Box

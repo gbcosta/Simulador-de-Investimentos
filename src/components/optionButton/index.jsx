@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { buttonColors } from "@utils/palette.js";
+import { buttonColors } from "@utils/utils.js";
 
 const disableTheme = createTheme({
   palette: {
@@ -47,6 +47,7 @@ export const OptionButton = (props) => {
           borderRight: !props.last ? "1px solid black" : "none",
           borderRadius: 0,
         }}
+        disableRipple
         onClick={handleClick}
         variant="contained"
       >

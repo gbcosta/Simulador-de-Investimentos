@@ -1,6 +1,6 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { buttonColors } from "@utils/palette";
+import { buttonColors } from "@utils/utils";
 import { BaseControlButton } from "@components/baseControlButton";
 
 const theme = createTheme({

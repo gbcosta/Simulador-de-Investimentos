@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { buttonColors } from "@utils/palette";
+import { buttonColors } from "@utils/utils";
 import { BaseControlButton } from "@components/baseControlButton";
-const theme = createTheme({
+
+const disableTheme = createTheme({
   palette: {
     primary: {
       main: buttonColors.disable.main,
@@ -12,9 +13,36 @@ const theme = createTheme({
   },
 });
 
-export const SimulateButton = () => {
+const activeTheme = createTheme({
+  palette: {
+    primary: {
+      main: buttonColors.secondary.main,
+      dark: "none",
+      contrastText: buttonColors.disable.text,
+    },
+  },
+});
+
+export const SimulateButton = (props) => {
+  const [isActive, setIsActive] = useState(false);
+
+  //check if the forms are filled
+  useEffect(() => {
+    setIsActive(false);
+
+    for (let key in props.formValues.incomeForm) {
+      if (!props.formValues.incomeForm[key]) return;
+    }
+
+    for (let key in props.formValues.indexingForm) {
+      if (!props.formValues.indexingForm[key]) return;
+    }
+
+    setIsActive(true);
+  }, [props.formValues]);
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isActive ? activeTheme : disableTheme}>
       <BaseControlButton>Simular</BaseControlButton>
     </ThemeProvider>
   );

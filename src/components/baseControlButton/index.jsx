@@ -6,17 +6,20 @@ export const BaseControlButton = (props) => {
     <Button
       variant="contained"
       fullWidth
+      disableRipple
       sx={{
         padding: "15px",
         borderRadius: "10px",
         fontSize: "1.25rem",
         fontWeight: "bold",
         border: "1px solid black",
-        mt: "30px",
+        mt: 10,
+        boxShadow: 0,
+        "&:hover": {
+          boxShadow: 0,
+        },
       }}
       {...props}
-    >
-      Simular
-    </Button>
+    ></Button>
   );
 };
