@@ -18,5 +18,3 @@ export const regex = {
   percentage: /^([0-9][0-9]?[0-9]?(,[0-9]([0-9])?)?%)$/,
   month: /^^([1-9]|1[012])$/,
 };
-
-export const everythingIsTrue = () => {};

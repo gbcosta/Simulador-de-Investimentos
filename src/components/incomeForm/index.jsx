@@ -18,7 +18,7 @@ export const IncomeForm = (props) => {
   }, [inputValues]);
 
   return (
-    <Box display={"flex"} width="80%" flexDirection={"column"} mt={3}>
+    <Box display={"flex"} width="80%" flexDirection={"column"}>
       <FormName>Rendimentos</FormName>
       <GroupOptionsButtons
         buttonsConfig={[{ name: "Bruto" }, { name: "Liquido" }]}

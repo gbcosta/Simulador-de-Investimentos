@@ -19,10 +19,10 @@ export const IndexingForm = (props) => {
 
   return (
     <Box display={"flex"} justifyContent={"center"}>
-      <Box display={"flex"} width="80%" flexDirection={"column"} mt={3}>
+      <Box display={"flex"} width="80%" flexDirection={"column"}>
         <FormName>Tipos de indexação</FormName>
         <GroupOptionsButtons
-          buttonsConfig={[{ name: "PRÉ" }, { name: "POS" }, { name: "FIXADO" }]}
+          buttonsConfig={[{ name: "PRÉ" }, { name: "POS" }]}
           setContextState={setInputValues}
           contextState={inputValues}
         />

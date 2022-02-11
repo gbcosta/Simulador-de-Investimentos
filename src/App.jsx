@@ -1,9 +1,13 @@
 import "./App.css";
-import { ContainerApp } from "./components/containerApp";
+import { GridApp } from "@components/gridApp";
+import { SimulationResultContextProvider } from "@contexts/simulationResults";
+import React from "react";
 function App() {
   return (
     <div className="App">
-      <ContainerApp />
+      <SimulationResultContextProvider>
+        <GridApp />
+      </SimulationResultContextProvider>
     </div>
   );
 }

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { buttonColors } from "@utils/utils";
 import { BaseControlButton } from "@components/baseControlButton";
+import { Api } from "@api/api";
+import { SimulationResultContext } from "@contexts/simulationResults";
 
 const disableTheme = createTheme({
   palette: {
@@ -23,10 +25,12 @@ const activeTheme = createTheme({
   },
 });
 
-export const SimulateButton = (props) => {
+export const SimulationButton = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const { simulationResult, setSimulationResult } = React.useContext(
+    SimulationResultContext
+  );
 
-  //check if the forms are filled
   useEffect(() => {
     setIsActive(false);
 
@@ -41,9 +45,22 @@ export const SimulateButton = (props) => {
     setIsActive(true);
   }, [props.formValues]);
 
+  const handleClick = async () => {
+    if (!isActive) return;
+    const api = new Api();
+    const indexacao = props.formValues.indexingForm.button
+      .toLowerCase()
+      .replace(/é/, "e");
+
+    const rendimento = props.formValues.incomeForm.button.toLowerCase();
+    const simulation = await api.simulacoes(indexacao, rendimento);
+    console.log(indexacao, rendimento);
+    setSimulationResult(simulation);
+  };
+
   return (
     <ThemeProvider theme={isActive ? activeTheme : disableTheme}>
-      <BaseControlButton>Simular</BaseControlButton>
+      <BaseControlButton onClick={handleClick}>Simular</BaseControlButton>
     </ThemeProvider>
   );
 };

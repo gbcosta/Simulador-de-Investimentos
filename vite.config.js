@@ -7,8 +7,13 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@components": path.resolve("src/components"),
-      "@utils": path.resolve("src/utils"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@api": path.resolve(__dirname, "src/api"),
+      "@contexts": path.resolve(__dirname, "src/contexts"),
     },
+  },
+  server: {
+    port: 3001,
   },
 });
