@@ -12,7 +12,9 @@ export class Api {
   }
 
   async indicadores() {
-    const indicadores = await fetch(`http://localhost:3000/indicadores`);
+    const indicadores = await fetch(`http://localhost:3000/indicadores`).then(
+      (data) => data.json()
+    );
     return indicadores;
   }
 }

@@ -13,7 +13,6 @@ export const BaseControlButton = (props) => {
         fontSize: "1.25rem",
         fontWeight: "bold",
         border: "1px solid black",
-        mt: 10,
         boxShadow: 0,
         "&:hover": {
           boxShadow: 0,

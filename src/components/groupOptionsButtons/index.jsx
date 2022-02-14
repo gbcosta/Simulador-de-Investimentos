@@ -1,14 +1,8 @@
 import React, { useEffect } from "react";
-import { OptionButton } from "@components/optionButton";
+import { OptionButton } from "./optionButton";
 import { Box } from "@mui/material";
 
 export const GroupOptionsButtons = (props) => {
-  const [activeButton, setActiveButton] = React.useState(null);
-
-  useEffect(() => {
-    props.setContextState({ ...props.contextState, button: activeButton });
-  }, [activeButton]);
-
   return (
     <Box
       display={"flex"}
@@ -28,8 +22,8 @@ export const GroupOptionsButtons = (props) => {
         return (
           <OptionButton
             key={key}
-            activeButton={activeButton}
-            setActiveButton={setActiveButton}
+            formValues={props.formValues}
+            setFormValues={props.setFormValues}
             last={isLast}
           >
             {config.name}

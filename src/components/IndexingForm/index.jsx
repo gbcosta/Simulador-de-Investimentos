@@ -3,53 +3,47 @@ import { FormName } from "@components/formName";
 import { Box } from "@mui/material";
 import { GroupOptionsButtons } from "@components/groupOptionsButtons";
 import { FormInput } from "@components/formInput";
-import { regex } from "../../utils/utils";
+import { regex } from "@utils/utils";
 
 export const IndexingForm = (props) => {
-  const [inputValues, setInputValues] = useState({
-    aporteMensal: null,
-    rentabilidade: null,
-    cdi: null,
-    button: null,
-  });
-
-  useEffect(() => {
-    props.setFormValues({ ...props.formValues, indexingForm: inputValues });
-  }, [inputValues]);
-
   return (
-    <Box display={"flex"} justifyContent={"center"}>
-      <Box display={"flex"} width="80%" flexDirection={"column"}>
+    <Box display={"flex"} justifyContent={{ lg: "center", xs: "left" }}>
+      <Box
+        display={"flex"}
+        width={{ xs: "100%", md: "80%" }}
+        flexDirection={"column"}
+      >
         <FormName>Tipos de indexação</FormName>
         <GroupOptionsButtons
           buttonsConfig={[{ name: "PRÉ" }, { name: "POS" }]}
-          setContextState={setInputValues}
-          contextState={inputValues}
+          setFormValues={props.setFormValues}
+          formValues={props.formValues}
         />
         <FormInput
           rgx={regex.money}
           message={"Deve ser um número válido"}
           variableName={"aporteMensal"}
-          contextSetState={setInputValues}
-          contextState={inputValues}
+          setFormValues={props.setFormValues}
+          formValues={props.formValues}
         >
           Aporte Mensal
         </FormInput>
         <FormInput
           rgx={regex.percentage}
-          message={"Deve ser uma porcentagem válido"}
+          message={"Deve ser uma porcentagem válida"}
           variableName={"rentabilidade"}
-          contextSetState={setInputValues}
-          contextState={inputValues}
+          setFormValues={props.setFormValues}
+          formValues={props.formValues}
         >
           Rentabilidade
         </FormInput>
         <FormInput
           rgx={regex.percentage}
-          message={"Deve ser uma porcentagem válido"}
+          message={"Deve ser uma porcentagem válida"}
           variableName={"cdi"}
-          contextSetState={setInputValues}
-          contextState={inputValues}
+          setFormValues={props.setFormValues}
+          formValues={props.formValues}
+          type={"cdi"}
         >
           CDI (ao ano)
         </FormInput>

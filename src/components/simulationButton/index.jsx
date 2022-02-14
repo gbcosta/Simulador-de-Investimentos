@@ -27,35 +27,35 @@ const activeTheme = createTheme({
 
 export const SimulationButton = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const { simulationResult, setSimulationResult } = React.useContext(
-    SimulationResultContext
-  );
+  const { setSimulationResult } = useContext(SimulationResultContext);
 
+  // checks if the fields of indexingValues e incomeValues are full
   useEffect(() => {
     setIsActive(false);
-
-    for (let key in props.formValues.incomeForm) {
-      if (!props.formValues.incomeForm[key]) return;
+    for (let key in props.incomeValues) {
+      if (!props.incomeValues[key]) return;
     }
 
-    for (let key in props.formValues.indexingForm) {
-      if (!props.formValues.indexingForm[key]) return;
+    for (let key in props.indexingValues) {
+      if (!props.indexingValues[key]) return;
     }
 
     setIsActive(true);
-  }, [props.formValues]);
+  }, [props.incomeValues, props.indexingValues]);
 
-  const handleClick = async () => {
+  // if is active call the api and send the data to simulationContext then the chart can use
+  const handleClick = () => {
     if (!isActive) return;
     const api = new Api();
-    const indexacao = props.formValues.indexingForm.button
+    const indexacao = props.indexingValues.button
       .toLowerCase()
       .replace(/é/, "e");
 
-    const rendimento = props.formValues.incomeForm.button.toLowerCase();
-    const simulation = await api.simulacoes(indexacao, rendimento);
-    console.log(indexacao, rendimento);
-    setSimulationResult(simulation);
+    const rendimento = props.incomeValues.button.toLowerCase();
+
+    api.simulacoes(indexacao, rendimento).then((data) => {
+      setSimulationResult(data);
+    });
   };
 
   return (

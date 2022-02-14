@@ -13,10 +13,35 @@ const theme = createTheme({
   },
 });
 
-export const ClearButton = () => {
+export const ClearButton = (props) => {
   return (
     <ThemeProvider theme={theme}>
-      <BaseControlButton>Limpar Campos</BaseControlButton>
+      <BaseControlButton
+        onClick={() => {
+          //find inputs and reset
+          const inputs = Array.from(document.querySelectorAll("input"));
+          inputs.map((input) => {
+            input.value = "";
+          });
+
+          //clear button and fields
+          props.setIncomeValues({
+            aporte: null,
+            prazo: null,
+            ipca: null,
+            button: null,
+          });
+
+          props.setIndexingValues({
+            aporteMensal: null,
+            rentabilidade: null,
+            cdi: null,
+            button: null,
+          });
+        }}
+      >
+        Limpar Campos
+      </BaseControlButton>
     </ThemeProvider>
   );
 };
