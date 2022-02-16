@@ -27,7 +27,7 @@ const activeTheme = createTheme({
 export const OptionButton = (props) => {
   const [active, setActive] = useState(false);
 
-  // checks when formValues button field change, if the button is the same as in the form if it is active if not deactivated
+  //  check when the field of the formValues button is changed, if the button is not the same as the formValues, disable the button
   useEffect(() => {
     if (props.formValues.button != props.children) {
       setActive(false);
