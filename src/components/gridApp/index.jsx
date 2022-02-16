@@ -149,7 +149,10 @@ export const GridApp = () => {
                   </SimulationResponseCard>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
-                  <SimulationResponseCard title={"Valor Final Liquido"}>
+                  <SimulationResponseCard
+                    title={"Valor Final Liquido"}
+                    color={"#53e040"}
+                  >
                     R$ {simulationResult.valorFinalLiquido}
                   </SimulationResponseCard>
                 </Grid>
@@ -159,7 +162,10 @@ export const GridApp = () => {
                   </SimulationResponseCard>
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
-                  <SimulationResponseCard title={"Ganho Liquido"}>
+                  <SimulationResponseCard
+                    title={"Ganho Liquido"}
+                    color={"#53e040"}
+                  >
                     R$ {simulationResult.ganhoLiquido}
                   </SimulationResponseCard>
                 </Grid>

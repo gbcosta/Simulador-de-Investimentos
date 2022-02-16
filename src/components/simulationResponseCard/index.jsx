@@ -18,7 +18,7 @@ export const SimulationResponseCard = (props) => {
           {props.title}
         </Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
-        <Typography mb={1} sx={{ fontWeight: 500 }}>
+        <Typography mb={1} sx={{ fontWeight: 500, color: props.color }}>
           {props.children}
         </Typography>
       </Card>
