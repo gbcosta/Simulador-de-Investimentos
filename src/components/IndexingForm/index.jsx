@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormName } from "@components/formName";
+import { FormHeader } from "@components/formHeader";
 import { Box } from "@mui/material";
 import { GroupOptionsButtons } from "@components/groupOptionsButtons";
 import { FormInput } from "@components/formInput";
@@ -13,7 +13,9 @@ export const IndexingForm = (props) => {
         width={{ xs: "100%", md: "80%" }}
         flexDirection={"column"}
       >
-        <FormName>Tipos de indexação</FormName>
+        <FormHeader tooltipText="Indexadores econômicos são índices que servem como referência para o rendimento de um ativo">
+          Tipos de indexação
+        </FormHeader>
         <GroupOptionsButtons
           buttonsConfig={[{ name: "PRÉ" }, { name: "POS" }]}
           setFormValues={props.setFormValues}

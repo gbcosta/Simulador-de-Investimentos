@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormName } from "@components/formName";
+import { FormHeader } from "@components/formHeader";
 import { Box } from "@mui/material";
 import { GroupOptionsButtons } from "@components/groupOptionsButtons";
 import { FormInput } from "@components/formInput";
@@ -12,7 +12,9 @@ export const IncomeForm = (props) => {
       width={{ xs: "100%", md: "80%" }}
       flexDirection={"column"}
     >
-      <FormName>Rendimentos</FormName>
+      <FormHeader tooltipText="O rendimento é o retorno financeiro de um investimento.">
+        Rendimentos
+      </FormHeader>
       <GroupOptionsButtons
         buttonsConfig={[{ name: "Bruto" }, { name: "Liquido" }]}
         setFormValues={props.setFormValues}
