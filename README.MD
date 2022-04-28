@@ -1,5 +1,18 @@
 # Simulador de Investimentos
 
+## Web
+
+<div align="center">
+  <img alt="DeviceMashups" src="./images/app.png" />
+</div>
+
+## Mobile
+
+<div align="center">
+  <img alt="DeviceMashups" src="./images/mobile.png" />
+  <img alt="DeviceMashups" src="./images/mobile2.png" />
+</div>
+
 ## Tecnologias
 
 - React
